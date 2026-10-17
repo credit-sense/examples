@@ -10,6 +10,12 @@ These Postman assets are provided strictly as a convenience for teams requiring 
 
 ---
 
+## Environment Variables
+
+Before running a request, fill in the variables in the environment that matches the collection (`Client` or `Vendor`). The Chirp requests (`FetchChirpReport`, `ChirpQualify*`, `qualifiedReportLinkChirp`) read `request_code`: set it to a Chirp request code issued for your own consumer.
+
+---
+
 ## Data Disclaimer
 
 All example requests, responses, and data elements included within these collections represent **synthetic, non-production, and non-identifiable data**. Any entities, identifiers, account details, customer records, personal information, or financial attributes referenced within these examples are entirely fictitious and are supplied solely for the purpose of illustrating data structures, schema patterns, and integration concepts.
