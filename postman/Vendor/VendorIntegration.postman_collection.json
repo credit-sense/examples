@@ -24,7 +24,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifyQuery(\n  $reportId: String! # \"reportId\" = \"XXXXXX\" where value is Chrip Request Code\n) {\n  qualify (\n    chirp: { requestCode: $reportId }\n  ) {\n    loanDecision {\n      # Decision: Approve | Review | Deny\n      status\n      # Score Range: below - orange range, above - green range\n      camApproveThreshold\n      # Score Range: below - red range\n      camDenyThreshold\n    }\n    creditApprovingDecision {\n      # Score\n      approvingScore\n    }\n    # Amount\n    loanAmount\n    redFlags {\n      # Risk Factors\n      # ----------------------------------------------------\n      # LoanStopPayments: critical - red\n      # LoanReversals: critical - red\n      # ReversalsWithSubsequentPayments: less critical - orange\n      # DebtConsolidations: critical - red\n      # Collections: critical - red\n      # LiquidAccount: critical - red\n      # SavingsAccount: critical - red\n      # BusinessAccount: critical - red\n      # PrepaidAccount: critical - red\n      # Disputes: critical - red\n      # OtherStopPayments: non-critical - do not display\n      # OtherReversals: non-critical - do not display\n      # NsfOverdraftFees: non-critical - do not display\n      code\n    }\n    income {\n      primary # you need to find where \"primary\" = true\n      # Average Income (Avg. Monthly Income)\n      avgMonthly\n    }\n    loanInfo {\n      # Outstanding Loans (Est. Total Monthly Debit)\n      totalProjectedDebit\n    }\n  }\n}",
-								"variables": "{\n    \"reportId\": \"K6O9PA\"\n}"
+								"variables": "{\n    \"reportId\": \"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
@@ -57,7 +57,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifyQuery(\n  $reportId: String! # \"reportId\" = \"XXXXXX\" where value is Chrip Request Code\n) {\n  qualify (\n    chirp: { requestCode: $reportId }\n  ) {\n    loanDecision {\n      # Decision: Approve | Review | Deny\n      status\n      # Score Range: below - orange range, above - green range\n      camApproveThreshold\n      # Score Range: below - red range\n      camDenyThreshold\n    }\n    creditApprovingDecision {\n      # Score\n      approvingScore\n    }\n    # Amount\n    loanAmount\n    redFlags {\n      # Risk Factors\n      # ----------------------------------------------------\n      # LoanStopPayments: critical - red\n      # LoanReversals: critical - red\n      # ReversalsWithSubsequentPayments: less critical - orange\n      # DebtConsolidations: critical - red\n      # Collections: critical - red\n      # LiquidAccount: critical - red\n      # SavingsAccount: critical - red\n      # BusinessAccount: critical - red\n      # PrepaidAccount: critical - red\n      # Disputes: critical - red\n      # OtherStopPayments: non-critical - do not display\n      # OtherReversals: non-critical - do not display\n      # NsfOverdraftFees: non-critical - do not display\n      code\n    }\n  }\n}",
-								"variables": "{\n    \"reportId\": \"K6O9PA\"\n}"
+								"variables": "{\n    \"reportId\": \"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
@@ -213,7 +213,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifiedReportLinkQuery(\n  $reportId: String!\n  $vendor: DataVendors!\n) {\n  qualifiedReportLink(\n    reportId: $reportId,\n    vendor:  $vendor\n  ) {\n    # One time link to use as the source for an iframe\n    link\n  }\n}",
-								"variables": "{\n    \"vendor\":\"Chirp\",\n    \"reportId\":\"K6O9PA\"\n}"
+								"variables": "{\n    \"vendor\":\"Chirp\",\n    \"reportId\":\"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
@@ -300,7 +300,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifyQuery(\n  $reportId: String! # \"reportId\" = \"XXXXXX\" where value is Chrip Request Code\n) {\n  qualify (\n    chirp: { requestCode: $reportId }\n  ) {\n    loanDecision {\n      # Decision: Approve | Review | Deny\n      status\n      # Score Range: below - orange range, above - green range\n      camApproveThreshold\n      # Score Range: below - red range\n      camDenyThreshold\n    }\n    creditApprovingDecision {\n      # Score\n      approvingScore\n    }\n    # Amount\n    loanAmount\n    redFlags {\n      # Risk Factors\n      # ----------------------------------------------------\n      # LoanStopPayments: critical - red\n      # LoanReversals: critical - red\n      # ReversalsWithSubsequentPayments: less critical - orange\n      # DebtConsolidations: critical - red\n      # Collections: critical - red\n      # LiquidAccount: critical - red\n      # SavingsAccount: critical - red\n      # BusinessAccount: critical - red\n      # PrepaidAccount: critical - red\n      # Disputes: critical - red\n      # OtherStopPayments: non-critical - do not display\n      # OtherReversals: non-critical - do not display\n      # NsfOverdraftFees: non-critical - do not display\n      code\n    }\n    income {\n      primary # you need to find where \"primary\" = true\n      # Average Income (Avg. Monthly Income)\n      avgMonthly\n    }\n    loanInfo {\n      # Outstanding Loans (Est. Total Monthly Debit)\n      totalProjectedDebit\n    }\n  }\n}",
-								"variables": "{\n    \"reportId\": \"K6O9PA\"\n}"
+								"variables": "{\n    \"reportId\": \"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
@@ -327,7 +327,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifyQuery(\n  $reportId: String! # \"reportId\" = \"XXXXXX\" where value is Chrip Request Code\n) {\n  qualify (\n    chirp: { requestCode: $reportId }\n  ) {\n    loanDecision {\n      # Decision: Approve | Review | Deny\n      status\n      # Score Range: below - orange range, above - green range\n      camApproveThreshold\n      # Score Range: below - red range\n      camDenyThreshold\n    }\n    creditApprovingDecision {\n      # Score\n      approvingScore\n    }\n    # Amount\n    loanAmount\n    redFlags {\n      # Risk Factors\n      # ----------------------------------------------------\n      # LoanStopPayments: critical - red\n      # LoanReversals: critical - red\n      # ReversalsWithSubsequentPayments: less critical - orange\n      # DebtConsolidations: critical - red\n      # Collections: critical - red\n      # LiquidAccount: critical - red\n      # SavingsAccount: critical - red\n      # BusinessAccount: critical - red\n      # PrepaidAccount: critical - red\n      # Disputes: critical - red\n      # OtherStopPayments: non-critical - do not display\n      # OtherReversals: non-critical - do not display\n      # NsfOverdraftFees: non-critical - do not display\n      code\n    }\n  }\n}",
-								"variables": "{\n    \"reportId\": \"K6O9PA\"\n}"
+								"variables": "{\n    \"reportId\": \"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
@@ -459,7 +459,7 @@
 							"mode": "graphql",
 							"graphql": {
 								"query": "query ChirpAppInnerIntegrationQualifiedReportLinkQuery(\n  $reportId: String!\n  $vendor: DataVendors!\n) {\n  qualifiedReportLink(\n    reportId: $reportId,\n    vendor:  $vendor\n  ) {\n    # One time link to use as the source for an iframe\n    link\n  }\n}",
-								"variables": "{\n    \"vendor\":\"Chirp\",\n    \"reportId\":\"K6O9PA\"\n}"
+								"variables": "{\n    \"vendor\":\"Chirp\",\n    \"reportId\":\"{{request_code}}\"\n}"
 							}
 						},
 						"url": {
